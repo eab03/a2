@@ -1,0 +1,84 @@
+html {
+    background-color: pink;
+}
+
+body {
+    border: 3px solid grey;
+    border-radius: 20px;
+    font-size: 100%;
+    font-weight: normal;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 2.5em 5em 5em 5em;
+    width: 700px;
+}
+
+.wrapper {
+    background-color: none;
+    margin: 0 10px;
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+fieldset {
+    margin: 0 0 2.25em 0;
+    padding: 0;
+    border: none;
+}
+
+legend {
+    display: block;
+    float: left;
+    margin: .25em 0;
+}
+
+span {
+    font-style: italic;
+    color: grey;
+    font-size: .75em;
+}
+
+#radios label, #checkboxes label {
+    color: grey;
+    display: block;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+input[type='text'] {
+    height: 2em;
+    width: 12em;
+}
+
+/*https://css-tricks.com/almanac/selectors/p/placeholder/*/
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: pink;
+  font-size: 1em;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: pink;
+  font-size: 1em;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: pink;
+  font-size: 1em;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: pink;
+  font-size: 1em;
+}
+
+input[type='checkbox'], input[type='radio'], input[type='text'] {
+    font-size: 2em;
+    margin-right: .25em;
+}
+
+.results {
+    background-color: pink;
+    height: 50px;
+    margin-top: 3em;
+    width: 100%;
+}
