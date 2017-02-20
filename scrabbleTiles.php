@@ -6,114 +6,95 @@ require('tools.php');
 // create an array
 $scrabbleTiles = [
     'a' => 1,
-    'b' => 1,
-    'c' => 1,
-    'd' => 1,
+    'b' => 3,
+    'c' => 3,
+    'd' => 2,
     'e' => 1,
-    'f' => 1,
-    'g' => 1,
-    'h' => 1,
+    'f' => 4,
+    'g' => 2,
+    'h' => 4,
     'i' => 1,
-    'j' => 1,
-    'k' => 1,
+    'j' => 8,
+    'k' => 5,
     'l' => 1,
-    'm' => 1,
+    'm' => 3,
     'n' => 1,
     'o' => 1,
-    'p' => 1,
-    'q' => 1,
+    'p' => 3,
+    'q' => 10,
     'r' => 1,
     's' => 1,
     't' => 1,
     'u' => 1,
-    'v' => 1,
+    'v' => 4,
     'w' => 1,
-    'x' => 1,
-    'y' => 1,
-    'z' => 1
+    'x' => 8,
+    'y' => 4,
+    'z' => 10
 ];
 
-dump($scrabbleTiles);
-
-
-
-// $bookJson = file_get_contents('books.json');
-
-// second parameter is to return an associative array vs object
-// goal is to take this json file and turn it into a php file
-// $books = json_decode($bookJson, true);
-
-/* use dump to see what is in this file (books.json) using the variable name
-// books dump ($booksJson);
-// dump($books);
-// to just pull the GG and then author information
-// dump($books["The Great Gatsby"]['author']);
-// output is a string with json code */
-
-// used this code later to just be able to see the info in the display file
-
-
-// fetched data
-// could fetch and filter data file -- this is the logic file now for the display
-// file
-
 // ****** create variable that sets results to true -- see bottom of code!!!
-// $haveResults = true;
+$haveResults = true;
 
-// create var filter and wrap in an if statement
-// isset lets you know if this exists (i.e. is set)
-// full if/else good with complex checks
-// checking to see if get data exists, especially when referring to itself
-/*if(isset($_GET['filter'])) {
-$filter = $_GET['filter'];
+$enterWord = (isset($_GET['enterWord'])) ? $_GET['enterWord'] : "";
+$enterWord = strtolower($enterWord);
+//dump($enterWord);
+
+$letter;
+$i;
+$sum;
+$finalSum;
+
+
+function searchArray($scrabbleTiles, $enterWord) {
+    global $sum;
+    $sum = 0;
+    foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
+        for ($i = 0; $i < strlen($enterWord); $i++) {
+            $letter = $enterWord[$i];
+        if (strstr($letter, $scrabbleLetter )) {
+            $sum = $sum += $scrabbleNumber;
+            //echo $scrabbleLetter. ': ' .$scrabbleNumber. '<br/>';
+		} else {
+		}
+        }
+    }
+    //echo $sum;
+    //dump($sum);
+    //echo $sum;
 }
-else {
-    $filter = '';
-}*/
 
-// alternative for if statement, ternary operator
-// takes boolean expression if... ternary operator ?... then is set to x, otherwise is set to y
-// translating caseInsensitive to a boolean
-$filter = (isset($_GET['filter'])) ? $_GET['filter'] : "";
-$caseInsensitive = (isset($_GET['caseInsensitive'])) ? true : false;
+searchArray($scrabbleTiles, $enterWord);
 
-//checks to see if filter is working
-// dump($filter);
+$bonus = (isset($_GET['bonus'])) ? $_GET['bonus'] : "";
 
-// loop through title key
-// if the title does not match the filter, then we remove it from the array
-// wind up with updated version of books array; if didn't match criteria then are excluded from the results
+function extraPoints($bonus, $sum) {
+    global $sum;
+    if ($bonus == "double") {
+    $sum = $sum * 2;
+    //echo $sum;
+}   else if ($bonus == "triple") {
+    $sum = $sum * 3;
+    //echo $sum;
+}   else {
+}
+}
 
-// return statement to return value from the function
-// this code allows for all books to be displayed if the filter is empty
-// again something to think about when keep code in same form
+extraPoints($bonus, $sum);
 
-// if the case insensitive is checked, make all characters lower case and then use the filter
-// if the case insensitive box is not checked, then match the title to the filter
+$extra = (isset($_GET['extra'])) ? $_GET['extra'] : "";
 
-// omitted curly brackets because this is a single statement
-/*if($filter == '')
-    return $books;
-
-foreach($books as $title => $book) {
-
-    if($caseInsensitive) {
-        $match = strtolower($title) == strtolower($filter);
+function extraBonus($extra, $sum) {
+    global $sum;
+    if($extra == "fifty") {
+        $sum = $sum + 50;
     }
     else {
-        $match = $title == $filter;
     }
+}
+extraBonus($extra, $sum);
 
-    dump($match);
-
-    if(!$match) {
-        unset($books[$title]);
-    }
-}*/
-
-// dump($books);
-
-// if no books returned, change results variable value to false
-//if(count($books == 0)) {
-//    $haveResults = false;
-//}
+//if no output returned, change results variable value to false
+if(count($scrabbleTiles == 0)) {
+    $haveResults = false;
+}

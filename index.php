@@ -21,28 +21,28 @@
 	<h1>Scrabble Word Score Calculator</h1>
 
 	<form method="GET" action="/">
-		<fieldset id='textInput'>
-			<legend>Your Word:<br><span>Required</span></legend>
-				<label><input type="text" id="enterWord" placeholder="Enter Your Word Here!"value="<?=sanitize($filter)?>" autofocus><label><br>
-			<label><input type="checkbox" name="caseInsensitive" <?php if($caseInsensitive) echo 'CHECKED' ?>>Case Insensitive</label>
-		</fieldset>
+		<div class="text-entry">
+			<label for="enterWord" id="textEntry">Your Word:<br><span class="required">Required</span></label>
+			<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="Enter Your Word Here!"value="<?=sanitize($enterWord)?>" autofocus><br>
+		</div>
 
 		<fieldset id='radios'>
 			<legend>Bonus Points</legend>
-				<label><input type="radio" name="enterBonus" value="none">None</label>
-				<label><input type="radio" name="enterBonus" value="double">Double word score</label>
-				<label><input type="radio" name="enterBonus" value="triple">Triple word score</label>
+				<label><input type="radio" name="bonus" value='none' <?php if($bonus == "none") echo "CHECKED"?>>None</label>
+				<label><input type="radio" name="bonus" value="double" <?php if($bonus == "double") echo "CHECKED"?>>Double word score</label>
+				<label><input type="radio" name="bonus" value="triple" <?php if($bonus == "triple") echo "CHECKED"?>>Triple word score</label>
 		</fieldset>
 
 		<fieldset id="checkboxes">
 			<legend>Include 50 point "bingo?"</legend>
-				<label><input type="checkbox" name="enterExtraPoints" value="no">Yes!</label>
+				<label><input type='checkbox' name="extra" value="fifty" <?php if($extra == "box1") echo 'CHECKED'?>> Yes, Fifty Points!</label>
 		</fieldset>
 		<br>
 			<input type="submit" class="btn btn-primary btn-small">
 	</form>
 
-	<div class="results"></div>
+	<div class="alert alert-success">
+	<p>Your final score is 	<?=$sum?></p>
 </div>
 
 </body>

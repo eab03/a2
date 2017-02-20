@@ -34,10 +34,10 @@ legend {
     margin: .25em 0;
 }
 
-span {
+.required {
     font-style: italic;
     color: grey;
-    font-size: .75em;
+    font-size: 1em;
 }
 
 #radios label, #checkboxes label {
@@ -71,14 +71,23 @@ input[type='text'] {
   font-size: 1em;
 }
 
-input[type='checkbox'], input[type='radio'], input[type='text'] {
+input[type='checkbox'], input[type='radio'], input[type='text'], #textEntry {
     font-size: 2em;
     margin-right: .25em;
+    font-weight: normal;
 }
 
-.results {
+input[type='submit'],
+    margin-bottom: 10px;
+
+.alert .alert-success {
     background-color: pink;
+    color: black;
     height: 50px;
     margin-top: 3em;
     width: 100%;
+}
+
+p {
+    font-size: 3em;
 }
