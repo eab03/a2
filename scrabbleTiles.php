@@ -1,9 +1,10 @@
 <?php
 
 // require that this file access tools.php
-require('tools.php');
+require('updatedTools.php');
+require('Form.php');
 
-// create an array
+// array of scrabble letters and associated values
 $scrabbleTiles = [
     'a' => 1,
     'b' => 3,
@@ -33,18 +34,22 @@ $scrabbleTiles = [
     'z' => 10
 ];
 
-// ****** create variable that sets results to true -- see bottom of code!!!
+// create variable that sets results to true -- see bottom of code
 $haveResults = true;
 
-$enterWord = (isset($_GET['enterWord'])) ? $_GET['enterWord'] : "";
+// get the word from the form
+$enterWord = (isset($_GET['enterWord'])) ? $_GET['enterWord'] : '';
 $enterWord = strtolower($enterWord);
-//dump($enterWord);
 
-$letter;
-$i;
-$sum;
+/* set variables and function for comparing the letters in the
+form to those in the array */
+
+// calculate intial sum total of the word without bonus points added
+
 $finalSum;
-
+$i;
+$letter;
+$sum;
 
 function searchArray($scrabbleTiles, $enterWord) {
     global $sum;
@@ -52,46 +57,48 @@ function searchArray($scrabbleTiles, $enterWord) {
     foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
         for ($i = 0; $i < strlen($enterWord); $i++) {
             $letter = $enterWord[$i];
-        if (strstr($letter, $scrabbleLetter )) {
-            $sum = $sum += $scrabbleNumber;
-            //echo $scrabbleLetter. ': ' .$scrabbleNumber. '<br/>';
-		} else {
-		}
+            if (strstr($letter, $scrabbleLetter )) {
+                $sum = $sum += $scrabbleNumber;
+		    } else {
+		    }
         }
     }
-    //echo $sum;
-    //dump($sum);
-    //echo $sum;
 }
 
 searchArray($scrabbleTiles, $enterWord);
 
-$bonus = (isset($_GET['bonus'])) ? $_GET['bonus'] : "";
+// get input from radio buttons for double and triple word score
+// add extra points, if applicable, to the sum total
+
+$bonus = (isset($_GET['bonus'])) ? $_GET['bonus'] : '';
 
 function extraPoints($bonus, $sum) {
     global $sum;
-    if ($bonus == "double") {
-    $sum = $sum * 2;
-    //echo $sum;
-}   else if ($bonus == "triple") {
-    $sum = $sum * 3;
-    //echo $sum;
-}   else {
-}
+
+    if ($bonus == 'double') {
+        $sum = $sum * 2;
+    } else if ($bonus == 'triple') {
+        $sum = $sum * 3;
+    } else {
+    }
 }
 
 extraPoints($bonus, $sum);
 
-$extra = (isset($_GET['extra'])) ? $_GET['extra'] : "";
+// get input from the checkbox for extra 50 points (if checked)
+// add extra points, if applicable, to the sum total
+
+$extra = (isset($_GET['extra'])) ? $_GET['extra'] : '';
 
 function extraBonus($extra, $sum) {
     global $sum;
-    if($extra == "fifty") {
+    if($extra == 'fifty') {
         $sum = $sum + 50;
     }
     else {
     }
 }
+
 extraBonus($extra, $sum);
 
 //if no output returned, change results variable value to false
