@@ -12,19 +12,21 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
+	<script type="text/javascript" src="js/a2.js"></script>
+
 	<title>Scrabble Word Score Calculator</title>
 
 </head>
 
 <body>
 	<div class="wrapper">
-	<h1>SCRABBLE WORD SCORE CALCULATOR</h1>
+	<h1><span id="scrabble">SCRABBLE</span><br>WORD SCORE CALCULATOR</h1>
 
 	<div class="form-inputs">
-	<form method="GET" action="/">
+	<form method="GET" action="/" name="a2Form">
 		<div class="text-entry">
-			<label for="enterWord" id="textEntry">YOUR WORD:<br><span class="required">Required (1-7 letters only please!)</span></label>
-			<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="Enter Your Word Here! autofocus required "value="<?=sanitize($enterWord)?>"><br>
+			<label for="enterWord" id="textEntry">YOUR WORD:<br><span>Required (1-7 letters only please!)</span></label>
+			<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="Enter Your Word Here!" required="required" autofocus maxlength="7" value="<?=sanitize($enterWord)?>"><br>
 		</div><!--close div text-extry-->
 
 		<fieldset id="radios">
@@ -35,12 +37,12 @@
 		</fieldset>
 
 		<fieldset id="checkboxes">
-			<legend>INCLUDE 50 POINT "BINGO?"</legend>
-				<label><input type='checkbox' name="extra" value="fifty" <?php if($extra == 'box1') echo 'CHECKED'?>>Add 50 points!</label>
+			<legend>INCLUDE 50 POINT "BINGO?"<br><span>(A word that uses all 7 letters!)</span></legend>
+				<label><input type='checkbox' name="extra" value="fifty" <?php if($extra == 'fifty') echo 'CHECKED'?>>Add 50 points!</label>
 		</fieldset>
 		<br>
-			<input type="submit" name="calculate" value="calculate" class="btn btn-primary btn-small">
-			<input type="reset" name="reset" value="reset" class="btn btn-primary btn-small">
+			<input type="submit" id="calculate_btn" name="calculate" value="calculate" class="btn btn-primary btn-small">
+			<input type="reset" id="reset-btn" name="reset" value="reset" class="btn btn-primary btn-small">
 	</form>
 </div> <!--close div form-->
 
