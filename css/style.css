@@ -15,7 +15,7 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     min-width: 600px;
-    padding: 2.5em 3.5em;
+    padding: 2.25em 3.5em;
     width: 42%;
 }
 
@@ -24,10 +24,9 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bold;
-    margin-top: .85em;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
 }
 
 span {
@@ -36,19 +35,18 @@ span {
 }
 
 .form-group {
-    padding-left: 19px;
-    padding-bottom: 15px;
+    padding: 0 0 15px 15px;
 }
 
 legend, label {
-    font-size: 2.25em;
+    font-size: 2em;
     font-weight: bold;
-    margin-bottom: 0;
+    margin-bottom: -5px;
 }
 
 label:first-child {
-    color: black;
-    font-size: 2.25em;
+    color: #2c3e50;
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -61,13 +59,17 @@ label:first-child {
 
 .control-label, #enterWord {
     color: grey;
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: normal;
 }
 
 #enterWord {
     height: 40px;
-    width: 200px;
+    width: 205px;
+}
+
+.checkbox label.control-label:last-child {
+    margin-top: -10px;
 }
 
 .btn {
@@ -77,12 +79,11 @@ label:first-child {
 }
 
 .alert .alert-success {
-    height: 10px;
     width: 100%;
 }
 
 .alert p {
-    font-size: 2.5em;
+    font-size: 2.25em;
     text-align: center;
 }
 

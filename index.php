@@ -23,7 +23,7 @@
 				<div class="form-group text-entry">
 					<label for="enterWord" class="control-label">YOUR WORD:</label>
 						<p class="form-control-static">Required (1-7 letters only please!)</p>
-					<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="Enter Your Word Here!" required="required" autofocus maxlength="7" value="<?=sanitize($enterWord)?>"><br>
+					<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="7" value="<?=sanitize($enterWord)?>"><br>
 				</div><!--close div form-group-->
 
 				<div class="form-group radios">
@@ -45,9 +45,13 @@
 
 			</form><!--close form-->
 
-		<div class="alert alert-success">
-			<p>Your word score is: <?=$sum?></p>
-		</div> <!--close div alert-->
+		<?php if($_GET): ?>
+			<div class="alert alert-success" role="alert">
+				<p>Your word score is: <?=$sum?><br>
+					<?=$output?></p>
+			</div> <!--close div alert-->
+		<?php endif; ?>
+
 	</div> <!--close div wrapper-->
 
 </body>

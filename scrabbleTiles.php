@@ -33,9 +33,6 @@ $scrabbleTiles = [
     'z' => 10
 ];
 
-// create variable that sets results to true -- see bottom of code
-$haveResults = true;
-
 // get the word from the form
 $enterWord = (isset($_GET['enterWord'])) ? $_GET['enterWord'] : '';
 $enterWord = strtolower($enterWord);
@@ -88,19 +85,19 @@ extraPoints($bonus, $sum);
 // add extra points, if applicable, to the sum total
 
 $extra = (isset($_GET['extra'])) ? $_GET['extra'] : '';
+$output;
 
 function extraBonus($extra, $sum) {
     global $sum;
+    global $output;
     if($extra == 'fifty') {
         $sum = $sum + 50;
+        $alertType = "alert-success";
+        $output = "Nice Score!";
     }
     else {
+        $alertType = "alert";
     }
 }
 
 extraBonus($extra, $sum);
-
-//if no output returned, change results variable value to false
-if(count($scrabbleTiles == 0)) {
-    $haveResults = false;
-}
