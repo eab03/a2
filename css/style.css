@@ -35,7 +35,7 @@ span {
 }
 
 .form-group {
-    padding: 0 0 15px 15px;
+    padding: 0 0 17.5px 15px;
 }
 
 legend, label {
@@ -50,11 +50,20 @@ label:first-child {
     font-weight: bold;
 }
 
-.form-control-static {
+.checkbox legend {
+    margin-bottom: -15px;
+}
+
+p.form-control-static {
     color: red;
     font-size: 1.36em;
     font-style: italic;
     text-align: left;
+}
+
+#enterWord {
+    height: 40px;
+    width: 205px;
 }
 
 .control-label, #enterWord {
@@ -63,13 +72,8 @@ label:first-child {
     font-weight: normal;
 }
 
-#enterWord {
-    height: 40px;
-    width: 205px;
-}
-
 .checkbox label.control-label:last-child {
-    margin-top: -10px;
+    margin-top: -15px;
 }
 
 .btn {
