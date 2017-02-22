@@ -1,4 +1,3 @@
-<?php require('scrabbleTiles.php'); ?>
 
 <!DOCTYPE html>
 
@@ -12,7 +11,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
-	<script type="text/javascript" src="js/a2.js"></script>
+	<?php require('scrabbleTiles.php'); ?>
 
 	<title>Scrabble Word Score Calculator</title>
 

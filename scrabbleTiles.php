@@ -2,7 +2,6 @@
 
 // require that this file access tools.php
 require('updatedTools.php');
-require('Form.php');
 
 // array of scrabble letters and associated values
 $scrabbleTiles = [
