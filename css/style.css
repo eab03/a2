@@ -1,8 +1,10 @@
 html {
     background-image: url("/images/scrabble-243192.jpg");
+    background-position: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
 }
-
-    /*https://pixabay.com/en/scrabble-game-board-game-words-243192/*/
 
 body {
     border: 3px solid grey;
@@ -10,108 +12,82 @@ body {
     font-size: 100%;
     font-weight: normal;
     margin: 0 auto;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    padding: 2.5em 5em 5em 5em;
-    width: 625px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    min-width: 600px;
+    padding: 2.5em 3.5em;
+    width: 42%;
 }
 
 .wrapper {
-    background-color: none;
-    margin: 10px 10px;
+    margin: 10px 25px;
 }
 
 h1 {
     font-size: 3em;
     font-weight: bold;
-    margin-top: .75em;
+    margin-top: .85em;
     margin-bottom: 1em;
 }
 
-span:first-child {
-    color: red;
+span {
     font-size: 1.36em;
-    font-style: normal;
+    color: red;
 }
 
-div .form-inputs {
-    margin-top: 35px;
-}
-
-fieldset {
-    margin: 0 0 2.25em 0;
-    padding: 0;
-    border: none;
+.form-group {
+    padding-left: 19px;
+    padding-bottom: 15px;
 }
 
 legend, label {
     font-size: 2.25em;
-    font-weight: normal;
-    margin: .2em 0;
+    font-weight: bold;
+    margin-bottom: 0;
 }
 
-#radios label, #checkboxes label {
-    color: grey;
-    display: block;
-    font-size: 2em;
+label:first-child {
+    color: black;
+    font-size: 2.25em;
+    font-weight: bold;
 }
 
-div .text-entry {
-    margin-bottom: 3.5em;
-}
-
-#checkboxes {
-    margin-top: 3.5em;
-}
-
-input[type='text'] {
-    height: 2.75em;
-    margin-top: 7.5px;
-    width: 12.5em;
-    float: right;
-}
-
-span {
+.form-control-static {
     color: red;
-    font-size: .65em;
+    font-size: 1.36em;
     font-style: italic;
+    text-align: left;
 }
 
-/*https://css-tricks.com/almanac/selectors/p/placeholder/*/
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-size: 1em;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  font-size: 1em;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  font-size: 1em;
-}
-:-moz-placeholder { /* Firefox 18- */
-  font-size: 1em;
-}
-
-input[type='checkbox'], input[type='radio'], input[type='text'] {
+.control-label, #enterWord {
+    color: grey;
     font-size: 2em;
     font-weight: normal;
-    margin-right: .25em;
 }
 
-input[type='submit'], input[type='reset'] {
-    margin-top: 25px;
+#enterWord {
+    height: 40px;
+    width: 200px;
+}
+
+.btn {
+    margin-top: 15px;
     margin-right: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .alert .alert-success {
-    background-color: pink;
-    color: black;
-    height: 20px;
+    height: 10px;
     width: 100%;
 }
 
-p {
-    font-size: 2.75em;
+.alert p {
+    font-size: 2.5em;
     text-align: center;
+}
+
+@media only screen and (min-device-width: 2000px) {
+	body {
+		margin-top: 5%;
+	}
 }
