@@ -1,3 +1,5 @@
+<?php require('scrabbleTiles.php'); ?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -5,8 +7,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<?php require('scrabbleTiles.php'); ?>
 
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
@@ -48,6 +48,7 @@
 
 	<div class="alert alert-success">
 	<p>Your word score is: <?=$sum?></p>
+	</div>
 </div> <!--close div wrapper-->
 
 </body>
