@@ -19,29 +19,27 @@
 	<div class="wrapper">
 	<h1><span id="scrabble">SCRABBLE</span><br>WORD SCORE CALCULATOR</h1>
 
-			<form method="GET" action="/" name="a2Form" class="form-horizontal">
-				<div class="form-group text-entry">
-					<label for="enterWord" class="control-label">YOUR WORD:</label>
-						<p class="form-control-static">Required (1-7 letters only please!)</p>
+		<form method="GET" action="/" class="form-horizontal" id="scrabbleForm">
+			<div class="form-group text-entry">
+				<label for="enterWord" class="control-label">YOUR WORD:</label>
+				<p class="form-control-static">Required (1-7 letters only please!)</p>
 					<input type="text" class="form-control" id="enterWord" name="enterWord" placeholder="enter your word here!" required="required" maxlength="7" value="<?=sanitize($enterWord)?>"><br>
-				</div><!--close div form-group-->
+			</div><!--close div form-group-->
 
-				<fieldset class="form-group radios">
-					<legend>BONUS POINTS</legend>
-							<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value='none' <?php if($bonus == 'none') echo 'CHECKED'?>>&nbsp; None</label><br>
-							<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="double" <?php if($bonus == 'double') echo 'CHECKED'?>>&nbsp; Double word score</label><br>
-							<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="triple" <?php if($bonus == 'triple') echo 'CHECKED'?>>&nbsp; Triple word score</label>
-				</fieldset><!--close div form-group-->
+			<fieldset class="form-group radios">
+				<legend>BONUS POINTS</legend>
+					<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value='none' <?php if($bonus == 'none') echo 'CHECKED'?>>&nbsp; None</label><br>
+					<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="double" <?php if($bonus == 'double') echo 'CHECKED'?>>&nbsp; Double word score</label><br>
+					<label class="control-label"><input type="radio" class="form-check-input" name="bonus" value="triple" <?php if($bonus == 'triple') echo 'CHECKED'?>>&nbsp; Triple word score</label>
+			</fieldset><!--close div form-group-->
 
-				<fieldset class="form-group checkbox">
-					<legend>INCLUDE 50 POINT "BINGO?"</legend>
-						<p class="form-control-static">(A word that uses all 7 letters!)</p>
-						<label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" <?php if($extra == 'fifty') echo 'CHECKED'?>>&nbsp; Add 50 points!</label>
-				</fieldset><!--close div form-group-->
+			<fieldset class="form-group checkbox">
+				<legend>INCLUDE 50 POINT "BINGO?"</legend>
+					<p class="form-control-static">(A word that uses all 7 letters!)</p>
+					<label class="control-label"><input type='checkbox' class="form-check-input" name="extra" value="fifty" <?php if($extra == 'fifty') echo 'CHECKED'?>>&nbsp; Add 50 points!</label>
+			</fieldset><!--close div form-group-->
 
-				<br>
 				<input type="submit" class="btn btn-primary btn-small" id="calculate_btn" name="calculate" value="calculate">
-				<input type="reset" class="btn btn-primary btn-small" id="reset-btn" name="reset" value="reset">
 
 			</form><!--close form-->
 
@@ -53,6 +51,6 @@
 		<?php endif; ?>
 
 	</div> <!--close div wrapper-->
-
+	<script type="text/javascript" src="/js/a2.js"></script>
 </body>
 </html>

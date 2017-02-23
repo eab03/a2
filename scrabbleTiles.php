@@ -2,8 +2,19 @@
 
 // require that this file access tools.php
 require('updatedTools.php');
+require('Form.php');
 
-// array of scrabble letters and associated values
+use DWA\Form;
+
+$form = new Form($_GET);
+
+// get the text, radio and checkbox fields from the form
+
+$enterWord = $form->get('enterWord', "");
+$bonus = $form->get('bonus', "");
+$extra = $form->isChosen('extra');
+
+// array of scrabble tiles and associated values
 $scrabbleTiles = [
     'a' => 1,
     'b' => 3,
@@ -33,71 +44,68 @@ $scrabbleTiles = [
     'z' => 10
 ];
 
-// get the word from the form
-$enterWord = (isset($_GET['enterWord'])) ? $_GET['enterWord'] : '';
-$enterWord = strtolower($enterWord);
+// declare variables used in functions below
 
-/* set variables and function for comparing the letters in the
-form to those in the array */
-
-// calculate intial sum total of the word without bonus points added
-
-$finalSum;
 $i;
 $letter;
 $sum;
+$output; // variable used uniquely in extraBonus function to display message
+$enterWord=strtolower($enterWord);
 
-function searchArray($scrabbleTiles, $enterWord) {
-    global $sum;
-    $sum = 0;
-    foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
-        for ($i = 0; $i < strlen($enterWord); $i++) {
-            $letter = $enterWord[$i];
-            if (strstr($letter, $scrabbleLetter )) {
-                $sum = $sum += $scrabbleNumber;
-		    } else {
-		    }
+// function to add together the value of the individual tiles
+// result is the total sum of tiles without extra points added
+
+if($form->isSubmitted()) {
+
+    function searchArray($scrabbleTiles, $enterWord) {
+        global $sum;
+        $sum = 0;
+
+        foreach ($scrabbleTiles as $scrabbleLetter => $scrabbleNumber) {
+            for ($i = 0; $i < strlen($enterWord); $i++) {
+                $letter = $enterWord[$i];
+                if (strstr($letter, $scrabbleLetter )) {
+                    $sum = $sum += $scrabbleNumber;
+    		    } else {
+    		    }
+            }
         }
     }
-}
 
-searchArray($scrabbleTiles, $enterWord);
+    searchArray($scrabbleTiles, $enterWord);
 
-// get input from radio buttons for double and triple word score
-// add extra points, if applicable, to the sum total
+    // function to get input from radio buttons for double and triple word score
+    // result is to add extra points, if applicable, to the sum total
 
-$bonus = (isset($_GET['bonus'])) ? $_GET['bonus'] : '';
+    function extraPoints($bonus, $sum) {
+        global $sum;
 
-function extraPoints($bonus, $sum) {
-    global $sum;
-
-    if ($bonus == 'double') {
-        $sum = $sum * 2;
-    } else if ($bonus == 'triple') {
-        $sum = $sum * 3;
-    } else {
+        if ($bonus == 'double') {
+            $sum = $sum * 2;
+        } else if ($bonus == 'triple') {
+            $sum = $sum * 3;
+        } else {
+        }
     }
-}
 
-extraPoints($bonus, $sum);
+    extraPoints($bonus, $sum);
 
-// get input from the checkbox for extra 50 points (if checked)
-// add extra points, if applicable, to the sum total
+    // function to get input from the checkbox for extra 50 points (if checked)
+    // result is to add extra points, if applicable, to the sum total and output message(s)
 
-$extra = (isset($_GET['extra'])) ? $_GET['extra'] : '';
-$output;
-
-function extraBonus($extra, $sum) {
-    global $sum;
-    global $output;
-    if($extra == 'fifty') {
-        $sum = $sum + 50;
-        $alertType = "alert-success";
-        $output = "Nice Score!";
+    function extraBonus($extra, $sum) {
+        global $sum;
+        global $output;
+        if($extra == 'fifty') {
+            $sum = $sum + 50;
+            $alertType = "alert-success";
+            $output = "Nice Score!";
+        }
+        else {
+            $alertType = "alert";
+        }
     }
-    else {
-        $alertType = "alert";
-    }
-}
 
-extraBonus($extra, $sum);
+    extraBonus($extra, $sum);
+
+} // close if statement isSubmitted

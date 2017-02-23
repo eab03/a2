@@ -1,10 +1,11 @@
 html {
     background-image: url("/images/scrabble-243192.jpg");
-    background-position: fixed;
     background-size: cover;
     height: 100%;
     width: 100%;
 }
+
+/* source for background image: https://pixabay.com/en/scrabble-game-board-game-words-243192/*/
 
 body {
     border: 3px solid grey;
@@ -15,12 +16,12 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     min-width: 600px;
-    padding: 2.25em 3.5em;
-    width: 42%;
+    padding: 25px 35px;
+    width: 40%;
 }
 
 .wrapper {
-    margin: 10px 25px;
+    margin: 15px 25px 5px 25px;
 }
 
 h1 {
@@ -29,19 +30,29 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* set the size and color of the word 'Scabble' */
 span {
     font-size: 1.36em;
     color: red;
 }
 
+/* styling for form elements */
 .form-group {
-    padding: 0 0 17.5px 15px;
+    padding: 0 0 7.5px 15px;
+}
+
+.radios {
+    padding-bottom: 15px;
 }
 
 legend, label {
     font-size: 2em;
     font-weight: bold;
-    margin-bottom: -5px;
+    margin-bottom: -10px;
+}
+
+.checkbox legend {
+    margin-bottom: -15px;
 }
 
 label:first-child {
@@ -50,17 +61,11 @@ label:first-child {
     font-weight: bold;
 }
 
-.checkbox legend {
-    margin-bottom: -15px;
+.checkbox label.control-label:last-child {
+    margin-top: -15px;
 }
 
-p.form-control-static {
-    color: red;
-    font-size: 1.36em;
-    font-style: italic;
-    text-align: left;
-}
-
+/* set unique id for text box */
 #enterWord {
     height: 40px;
     width: 205px;
@@ -72,16 +77,21 @@ p.form-control-static {
     font-weight: normal;
 }
 
-.checkbox label.control-label:last-child {
-    margin-top: -15px;
+p.form-control-static {
+    color: red;
+    font-size: 1.36em;
+    font-style: italic;
+    text-align: left;
 }
 
+/* styling for 'calculate' and 'reset' buttons */
 .btn {
-    margin-top: 15px;
+    margin-top: 35px;
     margin-right: 20px;
     margin-bottom: 35px;
 }
 
+/* styling for the 'alert' box */
 .alert .alert-success {
     width: 100%;
 }
@@ -91,8 +101,9 @@ p.form-control-static {
     text-align: center;
 }
 
+/* media query for very large desktop */
 @media only screen and (min-device-width: 2000px) {
 	body {
-		margin-top: 5%;
+        margin-top: 5%;
 	}
 }
