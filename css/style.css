@@ -132,7 +132,7 @@ p.form-control-static {
 }
 
 /* media query for very large desktop */
-@media only screen and (min-device-width: 2200px) {
+@media only screen and (min-device-width: 2500px) {
 	body {
 		margin-top: 5%;
         margin-bottom: 5%;
