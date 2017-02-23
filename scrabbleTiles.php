@@ -1,8 +1,9 @@
 <?php
 
 // require that this file access tools.php
-require('updatedTools.php');
+
 require('Form.php');
+require('updatedTools.php');
 
 use DWA\Form;
 

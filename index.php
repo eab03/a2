@@ -51,6 +51,5 @@
 		<?php endif; ?>
 
 	</div> <!--close div wrapper-->
-	<script type="text/javascript" src="/js/a2.js"></script>
 </body>
 </html>
