@@ -5,7 +5,7 @@ html {
     width: 100%;
 }
 
-/* source for background image: https://pixabay.com/en/scrabble-game-board-game-words-243192/*/
+/* https://pixabay.com/en/scrabble-game-board-game-words-243192/ */
 
 body {
     border: 3px solid grey;
@@ -13,10 +13,10 @@ body {
     font-size: 100%;
     font-weight: normal;
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 2%;
-    min-width: 600px;
-    padding: 25px 35px;
+    min-width: 300px;
+    padding: 25px 10px;
     width: 40%;
 }
 
@@ -32,8 +32,8 @@ h1 {
 
 /* set the size and color of the word 'Scabble' */
 span {
-    font-size: 1.36em;
     color: red;
+    font-size: 1.36em;
 }
 
 /* styling for form elements */
@@ -49,6 +49,10 @@ legend, label {
     font-size: 2em;
     font-weight: bold;
     margin-bottom: -10px;
+}
+
+.radios legend {
+    margin-bottom: 1px;
 }
 
 .checkbox legend {
@@ -87,7 +91,6 @@ p.form-control-static {
 /* styling for 'calculate' and 'reset' buttons */
 .btn {
     margin-top: 35px;
-    margin-right: 20px;
     margin-bottom: 35px;
 }
 
@@ -104,6 +107,6 @@ p.form-control-static {
 /* media query for very large desktop */
 @media only screen and (min-device-width: 2000px) {
 	body {
-        margin-top: 5%;
+		margin-top: 5%;
 	}
 }
